@@ -7,6 +7,7 @@ const Router = () => {
   return (
     <Routes>
       <Route path="/" exact element={<PrivateRoutes />}>
+        <Route index element={<Main />} />
         <Route index path="main" element={<Main />} />
         <Route index path="myProfile" element={<Profile />} />
         <Route index path="user" element={<ProfileShow />} />
