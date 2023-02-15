@@ -41,18 +41,7 @@ export async function getNewUsers(currentFollowList) {
 }
 
 export async function getUsersIFollow(currentFollowList) {
-  if (!currentFollowList.length) {
-    const q = query(collection(db, "users"));
-    let data = [];
-
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      data.push({ ...doc.data(), uid: doc._key.path.segments[6] });
-    });
-
-    return data;
-  } else {
+  if (currentFollowList.length) {
     const q = query(
       collection(db, "users"),
       where(documentId(), "in", currentFollowList)
@@ -66,6 +55,21 @@ export async function getUsersIFollow(currentFollowList) {
     });
 
     return data;
+  } else {
+    return [];
+    // const q = query(
+    //   collection(db, "users"),
+    //   where(documentId(), "in", currentFollowList)
+    // );
+    // let data = [];
+
+    // const querySnapshot = await getDocs(q);
+    // querySnapshot.forEach((doc) => {
+    //   // doc.data() is never undefined for query doc snapshots
+    //   data.push({ ...doc.data(), uid: doc._key.path.segments[6] });
+    // });
+
+    // return data;
   }
 }
 

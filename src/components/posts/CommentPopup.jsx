@@ -5,9 +5,10 @@ import {
   Date,
   CommentsList,
   Xmark,
+  Card,
   CommentButtons,
 } from "./PostStyled";
-import Card from "../utils/Card";
+// import Card from "../utils/Card";
 import CreateComment from "./CreateComment";
 import { getCommentsForPost } from "../../server/comments";
 import Comment from "./Comment";
@@ -28,7 +29,7 @@ const CommentPopup = ({ close, comments, postId }) => {
 
   return (
     <CommentsOverlay>
-      <Card color="#707180" style={{ maxWidth: "500px" }} position="relative">
+      <Card color="#707180" position="relative">
         <Xmark onClick={close}>
           <FontAwesomeIcon icon={faXmark} />
         </Xmark>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Navbar,
   Brand,
@@ -8,6 +8,10 @@ import {
   ListItem,
   Box,
   Avatar,
+  MenuListDrop,
+  MenuItmeDrop,
+  NavbarDropWrapper,
+  XWrapper,
 } from "./NavbarStyled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -15,10 +19,29 @@ import {
   faHouse,
   faBell,
   faGear,
+  faBars,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 const DashNavbar = () => {
+  const [windowSize, setWindowSize] = useState([
+    window.innerWidth,
+    window.innerHeight,
+  ]);
+  const [dropdownStatus, setDropdownStatus] = useState(false);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowSize([window.innerWidth, window.innerHeight]);
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  });
   return (
     <Box>
       <Navbar>
@@ -73,6 +96,62 @@ const DashNavbar = () => {
             </Link>
           </ListItem>
         </MenuList>
+        {windowSize[0] < 839 && (
+          <FontAwesomeIcon
+            icon={faBars}
+            onClick={() => setDropdownStatus(!dropdownStatus)}
+            style={{ color: "white", fontSize: "35px", cursor: "pointer" }}
+          />
+        )}
+        {dropdownStatus && windowSize[0] < 839 && (
+          <NavbarDropWrapper>
+            <XWrapper>
+              <FontAwesomeIcon
+                style={{ fontWeight: "bold", fontSize: "35px" }}
+                icon={faXmark}
+                onClick={() => setDropdownStatus(false)}
+              />
+            </XWrapper>
+            <MenuListDrop>
+              <MenuItmeDrop>
+                <Link
+                  to="/"
+                  onClick={() => setDropdownStatus(false)}
+                  style={{ textDecoration: "none", color: "#111" }}
+                >
+                  Home
+                </Link>
+              </MenuItmeDrop>
+              <MenuItmeDrop>
+                <Link
+                  to="/settings"
+                  onClick={() => setDropdownStatus(false)}
+                  style={{ textDecoration: "none", color: "#111" }}
+                >
+                  Settings
+                </Link>
+              </MenuItmeDrop>
+              <MenuItmeDrop>
+                <Link
+                  to="/notifications"
+                  onClick={() => setDropdownStatus(false)}
+                  style={{ textDecoration: "none", color: "#111" }}
+                >
+                  Notifications
+                </Link>
+              </MenuItmeDrop>
+              <MenuItmeDrop>
+                <Link
+                  to="/myProfile"
+                  onClick={() => setDropdownStatus(false)}
+                  style={{ textDecoration: "none", color: "#111" }}
+                >
+                  Profile
+                </Link>
+              </MenuItmeDrop>
+            </MenuListDrop>
+          </NavbarDropWrapper>
+        )}
       </Navbar>
     </Box>
   );

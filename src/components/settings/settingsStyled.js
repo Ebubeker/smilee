@@ -16,6 +16,11 @@ export const ProfileImage = styled.img`
   left: 35px;
 
   border: 5px solid white;
+
+  @media screen and (max-width: 839px) {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;
 
 export const Container = styled.div`
@@ -23,11 +28,20 @@ export const Container = styled.div`
   margin: auto;
   position: relative;
   z-index: 0;
+  @media screen and (max-width: 1317px) {
+    width: 70%;
+  }
+  @media screen and (max-width: 583px) {
+    width: 90%;
+  }
 `;
 
 export const ProfileCard = styled.div`
   display: flex;
   justify-content: space-between;
+  @media screen and (max-width: 839px) {
+    display: block;
+  }
 `;
 
 export const Status = styled.div`
@@ -35,10 +49,16 @@ export const Status = styled.div`
   display: flex;
   margin-top: 100px;
   justify-content: center;
+  @media screen and (max-width: 839px) {
+    width: 100%;
+  }
 `;
 
 export const Info = styled.div`
   width: 60%;
+  @media screen and (max-width: 839px) {
+    width: 100%;
+  }
 `;
 
 export const StatusInfo = styled.div`
@@ -126,6 +146,9 @@ export const Dialogue = styled.div`
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   position: relative;
+  @media screen and (max-width: 583px) {
+    width: 330px;
+  }
 `;
 
 export const DialogueHeader = styled.div``;
@@ -143,10 +166,16 @@ export const Form = styled.form`
   overflow-y: scroll;
   overflow-x: hidden;
   padding: 20px;
+  @media screen and (max-width: 583px) {
+    max-height: 400px;
+  }
 `;
 
 export const Field = styled.div`
   margin-bottom: 15px;
+  @media screen and (max-width: 583px) {
+    margin-bottom: 10px;
+  }
 `;
 
 export const InputLabel = styled.label``;

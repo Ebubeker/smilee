@@ -43,11 +43,11 @@ const DMSection = () => {
     <>
       <Card>
         <Title>DM Section</Title>
-        {usersList &&
+        {usersList ? (
           usersList.map((user) => {
             if (user.uid !== userData.uid) {
               return (
-                <User key={user.username}>
+                <User key={user.username} style={{ padding: "7px 0" }}>
                   <Link
                     to="/user"
                     state={{ userPost: user }}
@@ -73,7 +73,12 @@ const DMSection = () => {
                 </User>
               );
             }
-          })}
+          })
+        ) : (
+          <Name style={{ textAlign: "center" }}>
+            You do not follow someone yet
+          </Name>
+        )}
       </Card>
       {DMOppened && selectedUser && (
         <DMPopup closeDm={closeDm} user={selectedUser} />

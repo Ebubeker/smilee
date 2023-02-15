@@ -2,18 +2,18 @@ import React from "react";
 import PostsList from "../../components/posts/PostsList";
 import InfoPosts from "../../components/posts/InfoPosts";
 import DMSection from "../../components/dm/DMSection";
-import { Box, BoxContainer } from "./DashboardStyle";
+import { Box, BoxContainer, BoxContainerWrapper } from "./DashboardStyle";
 
 const Main = () => {
   return (
     <Box>
-      <BoxContainer>
+      <BoxContainerWrapper>
         <InfoPosts />
-      </BoxContainer>
+      </BoxContainerWrapper>
       <BoxContainer>
         <PostsList uids={[]} />
       </BoxContainer>
-      <BoxContainer>
+      <BoxContainer dm={true}>
         <DMSection />
       </BoxContainer>
     </Box>

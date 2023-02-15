@@ -6,6 +6,10 @@ export const Navbar = styled.nav`
   justify-content: space-between;
   width: 80%;
   margin: 0 auto;
+
+  @media screen and (max-width: 1317px) {
+    width: 95%;
+  }
 `;
 
 export const Brand = styled.p`
@@ -21,12 +25,18 @@ export const SearchBar = styled.div`
   border-radius: 5px;
   display: flex;
   align-items: center;
+  @media screen and (max-width: 839px) {
+    display: none;
+  }
 `;
 
 export const MenuList = styled.ul`
   list-style: none;
   display: flex;
   align-items: center;
+  @media screen and (max-width: 839px) {
+    display: none;
+  }
 `;
 
 export const Input = styled.input`
@@ -61,4 +71,41 @@ export const Avatar = styled.img`
   width: 33px;
   border-radius: 50%;
   object-fit: cover;
+`;
+
+export const MenuListDrop = styled.ul`
+  padding: 0;
+  list-style-type: none;
+  /* width: 100vw;
+  height: 100vh; */
+  /* padding-top: 125px; */
+`;
+
+export const NavbarDropWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #f5f6fa;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+`;
+
+export const MenuItmeDrop = styled.li`
+  padding: 10px 0;
+  transition-delay: 2s;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 30px 0;
+`;
+
+export const XWrapper = styled.div`
+  position: absolute;
+  top: 20px;
+  cursor: pointer;
+  right: 20px;
 `;

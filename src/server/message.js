@@ -64,8 +64,6 @@ export async function getMessages(reciever, sender) {
       return new Date(a.createdAt) - new Date(b.createdAt);
     });
 
-    console.log(data);
-
     if (data.length === 0) {
       return { status: false };
     } else {

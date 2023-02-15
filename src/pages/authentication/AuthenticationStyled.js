@@ -18,6 +18,16 @@ export const Card = styled.div`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+
+  @media screen and (max-width: 609px) {
+    width: 300px;
+    padding: 25px;
+  }
+
+  @media screen and (max-width: 359px) {
+    width: 200px;
+    padding: 25px;
+  }
 `;
 
 export const Input = styled.input`
@@ -40,6 +50,9 @@ export const Input = styled.input`
     margin-right: 2px;
     opacity: 0.6;
     filter: invert(0.8);
+  }
+  @media screen and (max-width: 609px) {
+    margin-top: 12px;
   }
 `;
 

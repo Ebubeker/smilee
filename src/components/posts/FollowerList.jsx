@@ -34,7 +34,7 @@ const FollowerList = () => {
       {users.map((user) => {
         if (user.username !== userData.username) {
           return (
-            <User key={user.username}>
+            <User style={{ padding: "7px 0" }} key={user.username}>
               <UserContext>
                 <CommentorProfile src={user.photo} />
                 <Name style={{ marginLeft: "10px" }}>@{user.username}</Name>
